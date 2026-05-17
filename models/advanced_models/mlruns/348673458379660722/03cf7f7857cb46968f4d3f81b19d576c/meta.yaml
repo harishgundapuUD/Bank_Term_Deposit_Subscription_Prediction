@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/advanced_models/mlruns/348673458379660722/03cf7f7857cb46968f4d3f81b19d576c/artifacts
+end_time: 1779004123266
+entry_point_name: ''
+experiment_id: '348673458379660722'
+lifecycle_stage: active
+run_id: 03cf7f7857cb46968f4d3f81b19d576c
+run_name: light_gbm
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779004082498
+status: 3
+tags: []
+user_id: harish

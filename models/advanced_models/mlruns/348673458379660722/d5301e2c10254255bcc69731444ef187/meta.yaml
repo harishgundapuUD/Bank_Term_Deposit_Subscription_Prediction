@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/advanced_models/mlruns/348673458379660722/d5301e2c10254255bcc69731444ef187/artifacts
+end_time: 1779004082492
+entry_point_name: ''
+experiment_id: '348673458379660722'
+lifecycle_stage: active
+run_id: d5301e2c10254255bcc69731444ef187
+run_name: XGBoost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779004055233
+status: 3
+tags: []
+user_id: harish

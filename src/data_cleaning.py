@@ -93,9 +93,10 @@ class DataCleaning:
 # =========================================================
 
 class Preprocessing:
-    def __init__(self, data, config, output_path='cleaned_data.csv'):
+    def __init__(self, data, config, save_data=True, output_path='cleaned_data.csv'):
         self.df = data
         self.config = config
+        self.save_data = save_data
         self.output_path = output_path
 
     # -----------------------------------------------------
@@ -189,8 +190,9 @@ class Preprocessing:
         # return df
 
     def save_cleaned_data(self):
-        self.df.to_csv(self.output_path, index=False)
-        print(f"Cleaned data saved to: {self.output_path}")
+        if self.save_data:
+            self.df.to_csv(self.output_path, index=False)
+            print(f"Cleaned data saved to: {self.output_path}")
 
     # -----------------------------------------------------
     # Complete Preprocessing

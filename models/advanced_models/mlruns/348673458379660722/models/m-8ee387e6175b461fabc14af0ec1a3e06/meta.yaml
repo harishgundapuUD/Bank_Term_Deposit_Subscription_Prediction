@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/advanced_models/mlruns/348673458379660722/models/m-8ee387e6175b461fabc14af0ec1a3e06/artifacts
+creation_timestamp: 1779004078556
+experiment_id: '348673458379660722'
+last_updated_timestamp: 1779004082474
+model_id: m-8ee387e6175b461fabc14af0ec1a3e06
+model_type: null
+name: XGBoost
+source_run_id: d5301e2c10254255bcc69731444ef187
+status: 2
+status_message: null

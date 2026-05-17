@@ -2,21 +2,23 @@
     "models": {
         "base_models": {
             "logisticregression": {
-                "run_id": "81b03cafc3dd479dbb92e72dd24fa075",
+                "run_id": "6db30a4e03c64ca59f962b09d684dc30",
                 "accuracy": 0.9126160000000001,
                 "precision": 0.6987990333215015,
                 "recall": 0.48460568147046484,
                 "f1-score": 0.5723170359281475,
                 "roc-auc": 0.9337577971655753,
+                "final_score": 0.7653719596639028,
                 "bestmodel": "no"
             },
             "randomforest": {
-                "run_id": "2a2fbdb828c347e3bb8672f52bb5b332",
+                "run_id": "30793df975fe4d35b4a43c61278b5d86",
                 "accuracy": 0.9160613333333334,
                 "precision": 0.807420084289188,
                 "recall": 0.3997435145129951,
                 "f1-score": 0.5344822882785277,
                 "roc-auc": 0.951456102388452,
+                "final_score": 0.8069074554212498,
                 "bestmodel": "yes"
             }
         }

@@ -3,7 +3,6 @@ import json
 import mlflow
 import mlflow.sklearn
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -34,10 +33,7 @@ with open("utils/config.json", "r") as f:
 
 if config:
         TARGET_COL = config["target_column"]
-        model_types = config.get("model_types", ["base_models", "advanced_models"])
         drop_cols = config.get("target_column", [])
-        models = config.get("models", {})
-        
 
 # ----------------------------
 # LOAD DATA
@@ -213,6 +209,7 @@ for model_type, models in all_models.items():
                                                         "recall": float(recall),
                                                         "f1-score": float(f1),
                                                         "roc-auc": float(roc_auc),
+                                                        "final_score": float(score),
                                                         "bestmodel": "no"
                                                     }
 

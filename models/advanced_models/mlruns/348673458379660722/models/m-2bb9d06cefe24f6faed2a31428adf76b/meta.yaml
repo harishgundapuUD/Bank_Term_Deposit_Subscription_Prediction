@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/advanced_models/mlruns/348673458379660722/models/m-2bb9d06cefe24f6faed2a31428adf76b/artifacts
+creation_timestamp: 1779004119084
+experiment_id: '348673458379660722'
+last_updated_timestamp: 1779004123247
+model_id: m-2bb9d06cefe24f6faed2a31428adf76b
+model_type: null
+name: light_gbm
+source_run_id: 03cf7f7857cb46968f4d3f81b19d576c
+status: 2
+status_message: null

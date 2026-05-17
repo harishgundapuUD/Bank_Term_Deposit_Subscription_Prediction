@@ -46,7 +46,8 @@
     "ml_model_dirs": {
                         "base_dir": "models",
                         "base_models": "base_models_models",
-                        "advanced_models": "advanced_models"
+                        "advanced_models": "advanced_models",
+                        "ensembel_model": "ensembel_models"
                     },
     "target_column": "y",
     "model_types": ["base_models", "advanced_models"]

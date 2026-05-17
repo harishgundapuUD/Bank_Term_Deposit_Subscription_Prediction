@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/base_models_models/mlruns/625643066533948180/models/m-afcc4025b18e449391ef77a665531136/artifacts
+creation_timestamp: 1779004050805
+experiment_id: '625643066533948180'
+last_updated_timestamp: 1779004055184
+model_id: m-afcc4025b18e449391ef77a665531136
+model_type: null
+name: randomforest
+source_run_id: 30793df975fe4d35b4a43c61278b5d86
+status: 2
+status_message: null

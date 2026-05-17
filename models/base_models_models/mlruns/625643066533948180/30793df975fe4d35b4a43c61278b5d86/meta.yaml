@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/base_models_models/mlruns/625643066533948180/30793df975fe4d35b4a43c61278b5d86/artifacts
+end_time: 1779004055202
+entry_point_name: ''
+experiment_id: '625643066533948180'
+lifecycle_stage: active
+run_id: 30793df975fe4d35b4a43c61278b5d86
+run_name: randomforest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779003626223
+status: 3
+tags: []
+user_id: harish

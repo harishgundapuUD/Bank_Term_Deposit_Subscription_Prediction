@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/ensembel_models/mlruns/790035886235113774/54492061d65443bbbb203de939d9f9fe/artifacts
+end_time: 1779014646323
+entry_point_name: ''
+experiment_id: '790035886235113774'
+lifecycle_stage: active
+run_id: 54492061d65443bbbb203de939d9f9fe
+run_name: stacked_rf_lgbm
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779013299719
+status: 3
+tags: []
+user_id: harish

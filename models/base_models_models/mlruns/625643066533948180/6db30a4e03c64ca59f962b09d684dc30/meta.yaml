@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/base_models_models/mlruns/625643066533948180/6db30a4e03c64ca59f962b09d684dc30/artifacts
+end_time: 1779003626214
+entry_point_name: ''
+experiment_id: '625643066533948180'
+lifecycle_stage: active
+run_id: 6db30a4e03c64ca59f962b09d684dc30
+run_name: logisticregression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1779003598385
+status: 3
+tags: []
+user_id: harish

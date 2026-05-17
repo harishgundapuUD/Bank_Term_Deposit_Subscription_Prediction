@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/advanced_models/mlruns/348673458379660722/models/m-2bb9d06cefe24f6faed2a31428adf76b/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 3.4.0
+model_id: m-2bb9d06cefe24f6faed2a31428adf76b
+model_size_bytes: 714113
+model_uuid: m-2bb9d06cefe24f6faed2a31428adf76b
+prompts: null
+run_id: 03cf7f7857cb46968f4d3f81b19d576c
+utc_time_created: '2026-05-17 07:48:39.148451'

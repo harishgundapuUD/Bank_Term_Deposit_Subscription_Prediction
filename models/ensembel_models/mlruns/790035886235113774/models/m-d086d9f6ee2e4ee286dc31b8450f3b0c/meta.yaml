@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/ensembel_models/mlruns/790035886235113774/models/m-d086d9f6ee2e4ee286dc31b8450f3b0c/artifacts
+creation_timestamp: 1779014638906
+experiment_id: '790035886235113774'
+last_updated_timestamp: 1779014646309
+model_id: m-d086d9f6ee2e4ee286dc31b8450f3b0c
+model_type: null
+name: stacked_model
+source_run_id: 54492061d65443bbbb203de939d9f9fe
+status: 2
+status_message: null

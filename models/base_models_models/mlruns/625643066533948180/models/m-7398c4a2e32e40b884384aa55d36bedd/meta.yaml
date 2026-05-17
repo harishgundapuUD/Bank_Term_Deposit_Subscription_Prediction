@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/bank_term_deposit_subscription_prediction/models/base_models_models/mlruns/625643066533948180/models/m-7398c4a2e32e40b884384aa55d36bedd/artifacts
+creation_timestamp: 1779003618565
+experiment_id: '625643066533948180'
+last_updated_timestamp: 1779003626192
+model_id: m-7398c4a2e32e40b884384aa55d36bedd
+model_type: null
+name: logisticregression
+source_run_id: 6db30a4e03c64ca59f962b09d684dc30
+status: 2
+status_message: null
