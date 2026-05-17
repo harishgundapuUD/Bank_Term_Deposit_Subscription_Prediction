@@ -1,0 +1,24 @@
+{
+    "models": {
+        "base_models": {
+            "logisticregression": {
+                "run_id": "81b03cafc3dd479dbb92e72dd24fa075",
+                "accuracy": 0.9126160000000001,
+                "precision": 0.6987990333215015,
+                "recall": 0.48460568147046484,
+                "f1-score": 0.5723170359281475,
+                "roc-auc": 0.9337577971655753,
+                "bestmodel": "no"
+            },
+            "randomforest": {
+                "run_id": "2a2fbdb828c347e3bb8672f52bb5b332",
+                "accuracy": 0.9160613333333334,
+                "precision": 0.807420084289188,
+                "recall": 0.3997435145129951,
+                "f1-score": 0.5344822882785277,
+                "roc-auc": 0.951456102388452,
+                "bestmodel": "yes"
+            }
+        }
+    }
+}

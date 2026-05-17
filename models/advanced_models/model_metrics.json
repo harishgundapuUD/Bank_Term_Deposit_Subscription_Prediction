@@ -1,0 +1,24 @@
+{
+    "models": {
+        "advanced_models": {
+            "XGBoost": {
+                "run_id": "a2e4f7f9e97447d48f783422a7da35ed",
+                "accuracy": 0.9283426666666668,
+                "precision": 0.7484766079096155,
+                "recall": 0.6116169306874809,
+                "f1-score": 0.6731510123936048,
+                "roc-auc": 0.9598879566153681,
+                "bestmodel": "no"
+            },
+            "light_gbm": {
+                "run_id": "20677383cf39413e8c413c9cb272f911",
+                "accuracy": 0.9344586666666667,
+                "precision": 0.7593469147103128,
+                "recall": 0.6686963414020294,
+                "f1-score": 0.711137803733369,
+                "roc-auc": 0.9652920315581717,
+                "bestmodel": "yes"
+            }
+        }
+    }
+}
