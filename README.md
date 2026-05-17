@@ -1,4 +1,3 @@
-
 # Bank Term Deposit Subscription Prediction
 
 This project is a machine learning classification system that predicts whether a customer will subscribe to a bank term deposit based on demographic, financial, and campaign-related data.
@@ -33,21 +32,17 @@ Target variable: `y` (subscription to term deposit)
 
 ## 🧠 Machine Learning Workflow
 
-1. Data Collection
-2. Data Cleaning
-3. Exploratory Data Analysis (EDA)
-4. Feature Engineering
-5. Encoding categorical variables
-6. Train/Test Split
-7. Model Training
-8. Model Evaluation
+1. Data Cleaning
+2. Feature Engineering
+3. Encoding categorical variables
+4. Model Training
+5. Model Evaluation
 
 ## 🤖 Models Used
 
 - Logistic Regression
-- Decision Tree Classifier
-- Random Forest Classifier
-- (Optional: XGBoost, Gradient Boosting)
+- Random Forest
+- (Advanced: XGBoost, LightGBM)
 
 ## 📈 Evaluation Metrics
 
@@ -55,7 +50,6 @@ Target variable: `y` (subscription to term deposit)
 - Precision Score
 - Recall Score
 - F1 Score
-- Confusion Matrix
 - ROC-AUC Score
 
 ## 🛠️ Tech Stack
@@ -64,37 +58,63 @@ Target variable: `y` (subscription to term deposit)
 - Pandas
 - NumPy
 - Scikit-learn
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+- MLFlow
 
-## 📁 Project Structure
+## 🏗️ Project Structure
 
-Bank_Term_Deposit_Subscription_Prediction/
-├── data/
-├── notebooks/
+```bash
+BANK_TERM_DEPOSIT_SUBSCRIPTION_PREDICTION/
+
+├── datasets/
+│   ├── csv files
+│
 ├── src/
-├── models/
+│   ├── data_cleaning.py
+│   ├── ensembel_model.py
+│   ├── training.py
+│
+├── trained_models/
+│   ├── base_models/
+│   │   ├── mlruns/
+│   │   └── model_metrics.json
+│   │
+│   ├── advanced_models/
+│   │   ├── mlruns/
+│   │   └── model_metrics.json
+│   │
+│   ├── emsembel_models/
+│   │   ├── mlruns/
+│   │   └── model_metrics.json
+│
+├── utils/
+│   ├── config.json
+│   └── train_columns.json
+│
+├── app.py
 ├── requirements.txt
-└── README.md
+├── README.md
+```
 
-## ⚙️ Installation
+⚙️ Installation
+
 
 ```bash
 git clone https://github.com/harishgundapuUD/Bank_Term_Deposit_Subscription_Prediction.git
 cd Bank_Term_Deposit_Subscription_Prediction
 pip install -r requirements.txt
+```
 
 
 🚀 Usage
 
 Run training script:
 
-python src/train.py
+python src/ensembel_model.py
 
 Or open notebook:
 
 jupyter notebook
+
 📊 Results
 
 The model predicts whether a customer will subscribe to a term deposit with good accuracy, helping improve marketing targeting and conversion rates.
@@ -102,14 +122,8 @@ The model predicts whether a customer will subscribe to a term deposit with good
 🔮 Future Improvements
 Hyperparameter tuning
 XGBoost / LightGBM models
-Deployment using Flask or FastAPI
 Streamlit dashboard
-Feature importance using SHAP
+
 👨‍💻 Author
 
 Harish Gundapu
-
-📄 License
-
-This project is open-source under the MIT License.
-```
