@@ -1,0 +1,46 @@
+{
+    "binary_columns": [
+                            "default",
+                            "housing",
+                            "loan"
+                        ],
+    "nominal_columns": [
+                            "job",
+                            "marital",
+                            "contact",
+                            "poutcome"
+                        ],
+    "ordinal_mappings": {
+                            "education": {
+                                                "unknown": 0,
+                                                "primary": 1,
+                                                "secondary": 2,
+                                                "tertiary": 3
+                                            }
+                        },
+    "drop_cols": ["id"],
+    "target_col": "y",
+    "numerical_columns": [
+                            "age",
+                            "balance",
+                            "day",
+                            "duration",
+                            "campaign",
+                            "pdays",
+                            "previous"
+                        ],
+    "month_mapping": {
+                        "jan": 1,
+                        "feb": 2,
+                        "mar": 3,
+                        "apr": 4,
+                        "may": 5,
+                        "jun": 6,
+                        "jul": 7,
+                        "aug": 8,
+                        "sep": 9,
+                        "oct": 10,
+                        "nov": 11,
+                        "dec": 12
+                    }
+}
