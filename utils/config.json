@@ -42,5 +42,12 @@
                         "oct": 10,
                         "nov": 11,
                         "dec": 12
-                    }
+                    },
+    "ml_model_dirs": {
+                        "base_dir": "models",
+                        "base_models": "base_models_models",
+                        "advanced_models": "advanced_models"
+                    },
+    "target_column": "y",
+    "model_types": ["base_models", "advanced_models"]
 }
