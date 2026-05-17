@@ -10,6 +10,25 @@
                             "contact",
                             "poutcome"
                         ],
+    "nominal_column_mapping": {
+                                "poutcome": ["success", "failure", "other", "unknown"],
+                                "contact": ["cellular", "telephone", "unknown"],
+                                "marital": ["married", "single", "divorced"],
+                                "job": [
+                                            "technician",
+                                            "blue_collar",
+                                            "student",
+                                            "admin",
+                                            "management",
+                                            "entrepreneur",
+                                            "self_employed",
+                                            "unknown",
+                                            "services",
+                                            "retired",
+                                            "housemaid",
+                                            "unemployed"
+                                        ]
+                            },
     "ordinal_mappings": {
                             "education": {
                                                 "unknown": 0,

@@ -3,8 +3,8 @@ import pandas as pd
 import mlflow.sklearn
 import json
 import os
+import yaml
 from src.data_cleaning import Preprocessing
-from training import MODEL_DIR
 
 # -----------------------------
 # Load MLflow Model
@@ -22,13 +22,66 @@ def load_model():
                         )
     mlruns_path = os.path.abspath(os.path.join(MODEL_DIR, "mlruns"))
     mlflow.set_tracking_uri(f"file:///{mlruns_path.replace(os.sep, '/')}")
-    with open("models/ensembel_model/model_metrics.json", "r") as f:
+    with open("models/ensembel_models/model_metrics.json", "r") as f:
         model_metrics = json.load(f)
     run_id = model_metrics["ensembel_model"]["run_id"]
-    MODEL_URI = f"runs:/{run_id}/stacked_rf_lgbm"
-    model = mlflow.sklearn.load_model(MODEL_URI)
-    return model
+    experiment_dirs = os.listdir(mlruns_path)
 
+    experiment_id = None
+
+    for exp in experiment_dirs:
+        possible_run = os.path.join(
+                                        mlruns_path,
+                                        exp,
+                                        run_id
+                                    )
+        if os.path.exists(possible_run):
+            experiment_id = exp
+            break
+
+    if experiment_id is None:
+        raise Exception("Run ID not found")
+
+    # -------------------------------------------------
+    # Outputs directory
+    # -------------------------------------------------
+
+    outputs_dir = os.path.join(
+                                    mlruns_path,
+                                    experiment_id,
+                                    run_id,
+                                    "outputs"
+                                )
+
+    output_folders = os.listdir(outputs_dir)
+
+    yaml_path = os.path.join(
+                                outputs_dir,
+                                output_folders[0],
+                                "meta.yaml"
+                            )
+
+    # -------------------------------------------------
+    # Read YAML
+    # -------------------------------------------------
+
+    with open(yaml_path, "r") as f:
+        meta = yaml.safe_load(f)
+
+    model_id = meta["destination_id"]
+
+    model_path = os.path.join(
+                                mlruns_path,
+                                experiment_id,
+                                # run_id,
+                                "models",
+                                model_id,
+                                "artifacts",
+                                # "model.pkl"
+                            )
+    # MODEL_URI = f"runs:/{run_id}/stacked_rf_lgbm"
+    model = mlflow.sklearn.load_model(model_path)
+    return model
 model = load_model()
 
 # -----------------------------
@@ -42,71 +95,98 @@ st.write("Enter customer details to get prediction.")
 # Input Fields
 # -----------------------------
 
-# Numeric Inputs
-age = st.number_input("Age", min_value=18, value=30)
 
-balance = st.number_input("Balance", value=0.0)
+col1, col2 = st.columns(2)
 
-day = st.number_input("Day", min_value=1, max_value=31, value=1)
+with col1:
 
-duration = st.number_input("Duration", min_value=0, value=100)
+    # Numeric Inputs
+    age = st.number_input("Age", min_value=18, value=30)
 
-campaign = st.number_input("Campaign", min_value=0, value=1)
+    balance = st.number_input("Balance", value=0.0)
 
-pdays = st.number_input("Pdays", min_value=-1, value=-1)
+    day = st.number_input("Date", min_value=1, max_value=31, value=1)
 
-previous = st.number_input("Previous", min_value=0, value=0)
+    duration = st.number_input("Duration", min_value=0, value=100)
 
-# Categorical Inputs
-job = st.selectbox(
-    "Job",
-    [
-        'technician',
-        'blue-collar',
-        'student',
-        'admin',
-        'management',
-        'entrepreneur',
-        'self-employed',
-        'unknown',
-        'services',
-        'retired',
-        'housemaid',
-        'unemployed'
-    ]
-)
+    campaign = st.number_input("Campaign", min_value=0, value=1)
 
-marital = st.selectbox(
-    "Marital Status",
-    ['married', 'single', 'divorced']
-)
+    pdays = st.number_input(
+        "Previous contact days",
+        min_value=-1,
+        value=-1
+    )
 
-education = st.selectbox(
-    "Education",
-    ['unknown', 'primary', 'secondary', 'tertiary']
-)
+    previous = st.number_input(
+        "Previous subscriptions",
+        min_value=0,
+        value=0
+    )
 
-default = st.selectbox(
-    "Default",
-    [0, 1]
-)
+    # Categorical Inputs
+    job = st.selectbox(
+        "Job",
+        [
+            'technician',
+            'blue-collar',
+            'student',
+            'admin',
+            'management',
+            'entrepreneur',
+            'self-employed',
+            'unknown',
+            'services',
+            'retired',
+            'housemaid',
+            'unemployed'
+        ]
+    )
 
-housing = st.selectbox(
-    "Housing Loan",
-    [0, 1]
-)
+with col2:
 
-loan = st.selectbox(
-    "Personal Loan",
-    [0, 1]
-)
+    marital = st.selectbox(
+        "Marital Status",
+        ['married', 'single', 'divorced']
+    )
 
-# Additional categorical fields
-contact = st.text_input("Contact", value="cellular")
+    education = st.selectbox(
+        "Education",
+        ['primary', 'secondary', 'tertiary', 'unknown']
+    )
 
-month = st.text_input("Month", value="may")
+    default = st.selectbox(
+        "Default",
+        ["no", "yes"]
+    )
 
-poutcome = st.text_input("Poutcome", value="unknown")
+    housing = st.selectbox(
+        "Housing Loan",
+        ["no", "yes"]
+    )
+
+    loan = st.selectbox(
+        "Personal Loan",
+        ["no", "yes"]
+    )
+
+    poutcome = st.selectbox(
+        "Previous outcome",
+        ['success', 'failure', 'other', 'unknown']
+    )
+
+    contact = st.selectbox(
+        "Contact",
+        ['cellular', 'telephone', 'unknown']
+    )
+
+    month = st.selectbox(
+        "Month",
+        [
+            'jan', 'feb', 'mar', 'apr',
+            'may', 'jun', 'jul', 'aug',
+            'sep', 'oct', 'nov', 'dec'
+        ]
+    )
 
 # -----------------------------
 # Prediction
@@ -132,11 +212,25 @@ if st.button("Predict"):
         'poutcome': poutcome
     }])
 
-    try:
-        processed_data = Preprocessing(data=input_data, config=config, save_data=False).process()
-        prediction = model.predict(processed_data)
+    # try:
+    processed_data = Preprocessing(data=input_data, config=config, save_data=False).process()
+    # Align columns with training data
 
-        st.success(f"Prediction: {prediction[0]}")
+    processed_data = processed_data.reindex(
+                                                columns=model.feature_names_in_,
+                                                fill_value=0
+                                            )
+    print(f"[DEBUG] : The processed data is : {processed_data.columns}")
+    prediction = model.predict(processed_data)
 
-    except Exception as e:
-        st.error(f"Prediction failed: {e}")
+    prediction_mapping = {
+                                0: "User will not take the Subscription",
+                                1: "User will take the Subscription"
+                            }
+    if prediction[0] == 1:
+        st.success(f"Prediction: {prediction_mapping[prediction[0]]}")
+    else:
+        st.error(f"Prediction: {prediction_mapping[prediction[0]]}")
+
+    # except Exception as e:
+    #     st.error(f"Prediction failed: {e}")

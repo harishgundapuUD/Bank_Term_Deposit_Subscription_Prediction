@@ -137,7 +137,7 @@ class Preprocessing:
                                     columns=self.config.get('nominal_columns'),
                                     drop_first=False
                                 )
-        # return df
+    #     return self.df
 
     # -----------------------------------------------------
     # Feature Engineering
@@ -154,8 +154,8 @@ class Preprocessing:
         # ---------------------------------------------
         # Previous Success
         # ---------------------------------------------
-
-        self.df['previous_success_flag'] = (self.df['poutcome_success'] == 1).astype(int)
+        
+        self.df['previous_success_flag'] = (self.df['poutcome'] == "success").astype(int)
 
         # ---------------------------------------------
         # Debt Burden
@@ -202,21 +202,24 @@ class Preprocessing:
         self.binary_encoding()
         self.ordinal_encoding()
         self.month_encoding()
-        self.one_hot_encoding()
         self.feature_engineering()
+        self.one_hot_encoding()
         self.save_cleaned_data()
+        return self.df
 
-for csv_file in ["train.csv", "test.csv"]:
-    data_cleaner = DataCleaning(
-                                    file_path=f"datasets/{csv_file}",
-                                    config_path="utils/config.json"
-                                )
-
-    cleaned_data, config_data = data_cleaner.process()
-
-    data_preprocessor = Preprocessing(
-                                        data=cleaned_data, 
-                                        config=config_data, 
-                                        output_path=f"datasets/cleaned_{csv_file}"
+if __name__ == "__main__":
+    for csv_file in ["train.csv", "test.csv"]:
+        data_cleaner = DataCleaning(
+                                        file_path=f"datasets/{csv_file}",
+                                        config_path="utils/config.json"
                                     )
-    data_preprocessor.process()
+
+        cleaned_data, config_data = data_cleaner.process()
+
+        data_preprocessor = Preprocessing(
+                                            data=cleaned_data, 
+                                            config=config_data, 
+                                            output_path=f"datasets/cleaned_{csv_file}"
+                                        )
+        data_preprocessor.process()
+    print("Data cleaning and preprocessing completed successfully!")

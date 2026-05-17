@@ -82,6 +82,10 @@ df = pd.read_csv("datasets/cleaned_train.csv")  # replace with your CSV file pat
 X = df.drop(columns=drop_cols)
 y = df[TARGET_COL]
 
+train_columns = X.columns
+with open("utils/train_columns.json", "w") as f:
+    json.dump(list(train_columns), f)
+
 best_score = -1
 best_model_name = None
 
